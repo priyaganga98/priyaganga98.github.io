@@ -80,7 +80,7 @@ code {
 .progress-bar-cust{
   height:35px;
   border-radius: 20px;
-  animation: progress-1 20s ease-in;
+  animation: progress-1 10s ease-in;
   animation-play-state:running;
 }
 

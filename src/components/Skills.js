@@ -1,6 +1,5 @@
 import { skills } from "../data";
 import { licenses } from "../data";
-import { languages } from "../data";
 
 function Skills() {
     return (

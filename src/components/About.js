@@ -79,7 +79,7 @@ function About() {
             </div>
             <div className="col w-50 img-wrapper" style={{ paddingTop: '130px', opacity: '55%', paddingBottom: '100px', marginLeft: '150px' }}>
               <img
-                className="img.hover zoom:hover" width="100%" height="100%"
+                 width="100%" height="100%"
                 alt="img"
                 src="./Priya.jpeg"
               />
