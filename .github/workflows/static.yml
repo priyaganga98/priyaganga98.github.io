@@ -1,28 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Simple workflow for deploying React content to GitHub Pages
+name: Deploy React to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -31,13 +24,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # 1. Setup Node.js (Required for React)
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # 2. Install Dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 3. Build the React App
+      - name: Build
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      # 4. Upload ONLY the build folder
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # This must match your build folder (CRA uses 'build', Vite uses 'dist')
+          path: './build' 
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
