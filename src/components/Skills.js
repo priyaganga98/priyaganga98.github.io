@@ -1,118 +1,82 @@
-import { skills } from "../data";
-import { licenses } from "../data";
+import { skillsCategories } from "../data";
 
 function Skills() {
     return (
-        <section id="skills" >
-            <div className="skills-bg font-italic" style={{ paddingBottom: '50px',paddingTop:'30px' }}>
-                <div className="container">
-                    <div className="text-center " style={{ paddingBottom: '25px' }}>
-                        <br></br>
-                        <br></br>
-                        <h1 className="sm:text-4xl text-3xl font-medium title-font dark-text mb-4">
-                            Skills &amp; Technologies
-                        </h1>
+        <section id="skills" className="py-5" style={{ backgroundColor: '#fafafa' }}>
+            <div className="container">
 
-                    </div>
+                {/* === HEADER === */}
+                <div className="text-center mb-5">
+                    <h2 className="section-title">About Me</h2>
+                    <div className="section-line mb-4"></div>
+                    <p className="about-subtitle">
+                        I am a Senior Application Developer with over 5 years of experience engineering high-performance solutions for global leaders like Oracle. My expertise lies in the Java ecosystem, where I build robust backend architectures using Spring Boot and RESTful APIs.
+                        Beyond standard development, I am passionate about Quality Engineering and AI. I don't just write code; I ensure it works flawlessly. I have successfully engineered AI Agents using Oracle AI Agent Studio and built comprehensive Playwright automation frameworks that reduced defect rates by 95%.</p>
+                </div>
 
+                <div className="row">
 
-                    <div className="row">
-                        <div className="col text-left w-50" >
-                            {skills.map((skill) => (
+                    {/* === LEFT COLUMN: BIO === */}
+                    <div className="col-lg-6 mb-5 mb-lg-0">
+                        <h3 className="fw-bold mb-4 bold-text">Education</h3>
+                        <div className="mb-4">
+                            <img
+                                src="./gec.png"
+                                alt="Education Background"
+                                className="img-fluid rounded shadow-sm"
+                                style={{ width: '14%', height: '14%' }}
+                            />
+                        </div>
+                        <div className="about-desc">
+                            {/* Education Card */}
+                            <div className=" p-3 ">
 
-                                <div key={skill} >
-                                    <div class="progress progress-bar-cust" >
-                                        <div class="progress-bar-background " role="progressbar" style={{ width: skill.percentage }} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{skill.percentage}</div>
-
-                                    </div>
-
-                                    <h6 style={{ paddingBottom: "10px" }}>{skill.name}</h6>
+                                {/* Text Details */}
+                                <div>
+                                    <h5 className="fw-bold text-dark mb-1">Government Engineering College, Thrissur</h5>
+                                    <p className="mb-1 text-secondary fw-bold">Bachelor of Technology</p>
+                                    <p className="mb-1 text-muted">Computer Science and Engineering</p>
+                                    <p className="mb-1 text-muted">CGPA : 8.26</p>
+                                    <p className="mb-0 small text-muted">
+                                        <i className="bi bi-calendar-event" style={{ marginRight: '5px' }}></i> Aug 2016 - May 2020
+                                    </p>
                                 </div>
 
-
-                            ))}
-                        </div>
-
-                        <div className="col text-left w-50" style={{ paddingTop: '100px' }}>
-                            <h6>Technical skills are the abilities and knowledge needed to perform specific tasks. They are practical, and often relate to mechanical, information technology, mathematical, or scientific tasks.</h6>
-                        </div>
-
-
-                    </div>
-                    <div className="container">
-                        <div className="text-center ">
-                            <br></br>
-                            <br></br>
-                            <h1 className="sm:text-4xl text-3xl font-medium title-font dark-text mb-4">
-                                Licenses &amp; certifications
-                            </h1>
-
-                        </div>
-                        <div class="row">
-
-                            <div className="col text-left w-50" style={{ paddingTop: '90px' }}>
-                                <h6>Licenses and certifications show that a person has the specific knowledge or skill needed to do a job. They are credentials that prove you've acquired competencies, developed skills, and gained knowledge required to a specific job.</h6>
                             </div>
-                            <div class="col text-left w-50 " >
-                                {licenses.map((license) => (
-
-                                    <div key={license} className="text-center md-5 p-1" >
-
-                                        <div class=" card text-white bg-styling-card mb-1" >
-                                            <div class="card-body " width="10px" height="10px">
-                                                Name: {license.name}
-                                                <br></br>
-                                                Organisation:{license.org}
-                                                <br></br>
-                                                Issued On:{license.on}
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-
-                                ))}
-                            </div>
-
-                            {/* <div className="col allign-right">
-                            <div className="text-center ">
-                                {/* <ChipIcon className="w-10 inline-block mb-4" /> */}
-                            {/* <br></br>
-                                <br></br>
-                                <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
-                                    Languages
-                                </h1>
-
-                            </div>
-                            <div class="row d-flex justify-content-center" >
-                                {languages.map((language) => (
-
-                                    <div key={language} className="w-27 m-2" >
-
-                                        <div class="card text-center text-white bg-success mb-3" >
-                                            <div class="card-body" width="140px" height="90px">
-                                                {language}
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-                                ))}
-                            </div> */}
-                            {/* </div> */}
                         </div>
                     </div>
+
+                    {/* === RIGHT COLUMN: SKILLS === */}
+                    <div className="col-lg-6">
+                        <h3 className="fw-bold mb-4 bold-text">My Skills</h3>
+
+                        {skillsCategories.map((category) => (
+                            <div key={category.title} className="mb-4">
+
+                                {/* Category Title (e.g., Languages) */}
+                                <h5 className="fw-bold mb-3" style={{ color: '#555', fontSize: '0.95rem' }}>
+                                    {category.title}
+                                </h5>
+
+                                {/* The Tags for this Category */}
+                                <div className="gap-2 mb-3">
+                                    {category.skills.map((skill) => (
+                                        <div key={skill} className="skill-badge mb-3">
+                                            {skill}
+                                        </div>
+                                    ))}
+                                </div>
+
+                            </div>
+                        ))}
+                    </div>
+
+
                 </div>
             </div>
         </section>
     );
 }
-
-
-
-
 
 
 export default Skills;

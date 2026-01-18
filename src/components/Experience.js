@@ -1,78 +1,151 @@
+import React from 'react';
+import '../App.css'; // Ensure your CSS file is imported
+
 function Experience() {
+
   return (
-    <section id="Experience">
-      <div className="white font-italic" style={{paddingTop:"75px"}}>
-        <div className="container text-center">
-          <h1 className="dark-text">
-            Experience
-          </h1>
-          <br></br>
-          <br></br>
-          <div class="card text-white bg-styling-card mb-3">
-            <div class="card-header"><h4>
-            <i class="fa fa-database"></i>&nbsp;
-            Oracle</h4></div>
-            <div class="card-body">
-              <h5 class="card-title">Application developer 2</h5>
-              <p class="card-text">From: 9 December 2021 To: Present
-                <br></br>Location: Thiruvananthapuram, Kerala, India
-                <br></br><br></br><div className="justify">
-                  <li>Learn the best practices for designing web APIs and PL-SQL queries.</li>
-                <li>Responsible for the API design and development of RESTFUL services for the enterprise product in business.
-                </li>
-                </div>
-              </p>
-            </div>
-          </div>
-          <div class="card text-white bg-styling-card mb-3">
-            <div class="card-header"><h4><i class="fa fa-briefcase"></i>&nbsp;
-            Incture Technologies</h4>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Associate Software Engineer</h5>
-              <p class="card-text ">From: 12 January 2021 To: 3 December 2021
-              <br></br>Location: Bengaluru, Karnataka, India<br></br>
-              <br></br><div className="justify">
-              <li>Responsible for the API design and development of RESTFUL services for the enterprise product in business.</li>
-              <li>Collaborated with a product development team of around 20+ developers to perform code maintenance and bug fixes.</li>
-              <li>Contributed to delivering excellent client implementation service for multiple clients' thereby reducing the support ticket raised by 20%.</li>
-              <li>Configured multiple external systems(3 systems) using publicly available APIs.</li>
-              <li>Assist the development team in supporting the application simultaneously in 2 environments, both the QA and production environments.</li>
-              <li>Involved in the design and integration of 2 internal products.</li></div>
-              </p>
-            </div>
-            <div class="card-header"></div>
-            <div class="card-body">
-              <h5 class="card-title">Trainee</h5>
-              <p class="card-text">From: 12 October 2020 To: 12 January 2021
-              <br></br>Location: Bengaluru, Karnataka, India
-              <br></br><br></br><div className="justify">
-              <li>Involved in the development and bug fixing using Java technologies.</li>
-              <li>Implemented Spring MVC framework to handle Rest API requests with 100% accuracy. </li>
-              <li>Maintain Scrum Discipline and deliver 90% of tasks on time as per Sprint plans.</li></div>
-              </p>
-            </div>
-          </div>
-          <div class="card text-white bg-styling-card mb-3">
-            <div class="card-header"><h4><i class="fa fa-desktop"></i>&nbsp;
-            ISRO - Indian Space Research Organization</h4></div>
-            <div class="card-body">
-              <h5 class="card-title">Intern</h5>
-              <p class="card-text">From: 1 June 2019 To: 31 August 2019
-                <br></br>Location: Thiruvananthapuram, Kerala, India
-                <br></br><br></br><div className="justify">
-                <li>Associated with a team of 4 members to implement a Spring MVC project with role-based functionalities. 
-                </li>
-                <li>Contributed to the design and development of Restful APIs.  </li>
-              <li>Conducted design reviews and provided input to the design recommendations.</li></div>
-              </p>
-            </div>
-          </div>
-          <br />
-        </div>
+    <section id="experience" className="position-relative">
+
+      {/* 1. Header Section */}
+      <div className="section-header pt-5">
+        <h2 className="section-title">Experience</h2>
+        <div className="section-line"></div>
       </div>
-      
+
+      {/* 2. The Content Card */}
+      <div className="container">
+        <div className="experience-card">
+
+          {/* === ORACLE === */}
+          <div className="mb-5">
+            {/* Logo & Company Name Row */}
+            <div className="d-flex align-items-center mb-0">
+              <div>
+                <div className="exp-company">Oracle</div>
+                <div className="exp-location">Thiruvananthapuram, Kerala, India · 4 yrs 2 mos</div>
+              </div>
+            </div>
+
+            {/* The Timeline of Roles */}
+            <div className="role-container">
+              {/* Role 1 */}
+              <div className="role-item current mb-4 position-relative">
+                <div className="timeline-dot"></div>
+                <div className="exp-role-title">Senior Application Developer</div>
+                <div className="exp-date">Apr 2024 - Present · 1 yr 10 mos</div>
+                <div className="exp-desc">
+                  <ul className="mb-0 ps-3">
+                    <li className="mb-1">Engineered AI agents using Oracle AI Agent Studio during an internal Oracle hackathon, integrating them with REST APIs to automate
+                      enterprise workflows.</li>
+                    <li className="mb-1">Implemented Playwright UI automation framework with daily execution via cron, significantly improving regression coverage and
+                      reducing UI and REST API defects by 95%.</li>
+                    <li className="mb-0">Built user interfaces for multiple applications using Visual Builder Cloud Service (VBCS).</li>
+                    <li className="mb-0">Set up and scheduled JMeter performance tests across multiple environments; monitored results and system metrics to ensure high
+                      performance, stability, and reliability.</li>
+
+                  </ul>
+                </div>
+                {/* <div className="d-flex flex-wrap gap-3 mt-3">
+                  <span className="skill-badge">Oracle ADF</span>
+                  <span className="skill-badge">Java</span>
+                  <span className="skill-badge">VBCS</span>
+                  <span className="skill-badge">Playwright</span>
+                </div> */}
+              </div>
+
+              {/* Role 2 */}
+              <div className="role-item position-relative">
+                <div className="timeline-dot"></div>
+                <div className="exp-role-title">Application Developer</div>
+                <div className="exp-date">Dec 2021 - Apr 2024 · 2 yrs 5 mos</div>
+                <div className="exp-desc">
+                  <ul className="mb-0 ps-3">
+                    <li className="mb-1">Implemented and maintained REST API endpoints, collaborating closely with front-end developers to ensure seamless API integration.</li>
+                    <li className="mb-1">Designed, developed, and tested Jersey-based APIs, ensuring efficient inter-service communication, performance optimization, and
+adherence to operational standards.</li>
+                    <li className="mb-1">Built and maintained a JMeter test suite to automate functional and performance testing, validating application stability under varying
+load conditions.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* === INCTURE === */}
+          <div className="mb-5">
+            <div className="d-flex align-items-center mb-0">
+              <div>
+                <div className="exp-company">Incture Technologies</div>
+                <div className="exp-location">Bengaluru, Karnataka, India · 1 yr 3 mos</div>
+              </div>
+            </div>
+
+            <div className="role-container">
+              <div className="role-item mb-4 position-relative">
+                <div className="timeline-dot"></div>
+                <div className="exp-role-title">Associate Software Engineer</div>
+                <div className="exp-date">Jan 2021 - Dec 2021 · 1 yr</div>
+                <div className="exp-desc">
+                  <ul className="mb-0 ps-3">
+                    <li className="mb-1">Designed and developed RESTful APIs for enterprise products, ensuring high performance and scalability.</li>
+                    <li className="mb-1">Collaborated with a 20+ member product development team to maintain code quality and resolve bugs efficiently.</li>
+                    <li className="mb-1">Delivered client implementations for multiple clients, reducing support tickets by 20%.</li>
+                    <li className="mb-1">Integrated and configured multiple external systems (3 systems) using publicly available APIs.</li>
+                    <li className="mb-1">Assisted the development team in supporting the application across both QA and production environments, ensuring smooth operation
+and quick issue resolution.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="role-item position-relative">
+                <div className="timeline-dot"></div>
+                <div className="exp-role-title">Java Developer (Trainee)</div>
+                <div className="exp-date">Oct 2020 - Jan 2021 · 4 mos</div>
+                <div className="exp-desc">
+                  <ul className="mb-0 ps-3">
+                    <li className="mb-1">Developed and maintained enterprise applications using Java/J2EE technologies, resolving bugs and implementing enhancements to
+improve system performance.</li>
+                    <li className="mb-1">Designed and implemented RESTful APIs using Spring MVC framework, ensuring 100% accuracy and adherence to business
+requirements.</li>
+                    <li className="mb-1">Collaborated in Agile/Scrum teams, participating in sprint planning, daily stand-ups, and retrospectives; consistently delivered all sprint
+commitments on time.</li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* === ISRO === */}
+          <div className="mb-0">
+            <div className="d-flex align-items-center mb-0">
+              <div>
+                <div className="exp-company">Indian Space Research Organization (ISRO)</div>
+                <div className="exp-location">Thiruvananthapuram · 3 mos</div>
+              </div>
+            </div>
+
+            <div className="role-container" style={{ borderLeft: 'none' }}> {/* No line needed for single bottom item if preferred */}
+              <div className="role-item position-relative">
+                <div className="timeline-dot"></div>
+                <div className="exp-role-title">Intern</div>
+                <div className="exp-date">July 2019 - Sept 2019</div>
+                <div className="exp-desc">
+                  <ul className="mb-0 ps-3">
+                    <li className="mb-1">Collaborated with a 4-member Agile team to develop a Spring MVC application with role-based access control.</li>
+                    <li className="mb-1">Designed and implemented RESTful APIs to support application functionality and third-party integrations.</li>
+                    <li className="mb-1">Participated in design reviews, providing recommendations to improve system architecture, scalability, and maintainability.</li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> {/* End Experience Card */}
+      </div> {/* End Container */}
     </section>
   );
 }
+
 export default Experience;

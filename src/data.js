@@ -29,6 +29,21 @@ export const skills = [
 
 ];
 
+export const skillsCategories = [
+  {
+    title: "Languages",
+    skills: ["Java", "JavaScript", "HTML", "CSS", "SQL"]
+  },
+  {
+    title: "Frameworks",
+    skills: ["Spring Boot", "Oracle ADF", "Jersey (JAX-RS)", "RESTful APIs"]
+  },
+  {
+    title: "Developer Tools",
+    skills: ["VBCS", "Playwright", "JMeter", "Oracle AI Agent Studio"]
+  }
+];
+
 export const licenses = [
   {
     name: "Architecting with Google compute engine",
@@ -51,37 +66,38 @@ export const projects = [
   {
     title: "Visitor Management System",
     subtitle: "Aug 2020 – Oct 2020",
-    description: <html>
-      {/* <li>Worked with a team of 4 members following agile development practices.</li> */}
-      <li>Designed and developed a web application from scratch on the Spring MVC framework, producing 100% accurate results as needed.</li>
-      {/* <li>Created and updated all relevant documentation and specifications required during the project's design and development phase that lasted for 2 months.</li> */}
-      <li>Directed the database design and development phase, in turn, reduced the code complexity by 20%.</li>
-      <li>Build and deployed the application in SAP Neo environment and created 2 service instances for the same.</li>
-      {/* <li>Involved in all 7 phases of the development lifecycle.</li> */}
-      <li>Developed, tested, and deployed necessary fixes and application upgrades in collaboration with the technical team of 4 members and other support teams.</li>
-      {/* <li>Ensured 100% timely delivery of the application, as agreed with the Development Lead.</li> */}
-      {/* <li>Develop code and fixed 100% of the issues based on code review/defects raised in testing phases of the project</li> */}
-      </html>,
-
+    descriptionPoints: [
+      "Architected and developed a web application from scratch using the Spring MVC framework, ensuring 100% data accuracy and requirement compliance.",
+      "Spearheaded the database design and optimization phase, reducing overall code complexity by 20% through efficient schema modeling.",
+      "Built and deployed the application in the SAP Neo environment, configuring service instances to ensure system stability.",
+      "Collaborated with a 4-member technical team to manage the full SDLC, including development, testing, and deployment of critical upgrades."
+    ],
     image: "https://images.pexels.com/photos/518244/pexels-photo-518244.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     Used_technologies: "Java, Hibernate, Spring MVC, Rest, SAP HANA Cloud Foundry ."
   },
   {
     title: "Automated Attendance Marking using Facial Recognition",
     subtitle: "Aug 2020",
-    description: <html>
-      <li>Created a face recognition system using openCV and python which keep a record of the recognized faces in a certain time-period.</li>
-      <li>The data gets stored onto a .csv file which can be used to keep track of the attendance.</li></html>,
+    descriptionPoints: [
+      "Developed a contactless attendance system using Python and OpenCV to automate the identification process.",
+      "Implemented real-time face detection algorithms to recognize and verify individuals within a specific time frame.",
+      "Engineered a data logging mechanism that automatically records recognized identities and timestamps into a CSV format.",
+      "Streamlined the attendance tracking process, eliminating manual entry errors and providing a reliable digital record for analysis."
+    ],
     image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     Used_technologies: "Python, OpenCV."
   },
   {
-    title: "Accident alert system",
+    title: "Accident Alert System",
     subtitle: "Mar 2019",
-    description:
-      <html><li>Accident alert system is a defense mechanism that alerts the driver about chances of occurrence of collision.</li> <li>Accelerometer of the device detects the sudden change in the acceleration of the vehicle and GSM module sends the alert message with the location of the accident.</li></html>,
+    descriptionPoints: [
+      "Designed an IoT-based vehicle safety system using Arduino and Python to detect accidents and automate emergency response.",
+      "Implemented a crash detection algorithm using an accelerometer to continuously monitor vehicle velocity and identify sudden impacts.",
+      "Integrated a GSM module to trigger immediate SMS alerts containing precise GPS coordinates to emergency contacts upon accident detection.",
+      "Engineered a driver alert mechanism to warn against potential collision risks, significantly reducing emergency response times."
+    ],
     image: "https://images.pexels.com/photos/3368844/pexels-photo-3368844.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    Used_technologies: "Python, Arduino."
+    Used_technologies: "Python, Arduino, GSM/GPS"
   }
 ];
 

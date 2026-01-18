@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 function App() {
   return (
     
-    <main className='bg-styling'>
+    <div className="App">
       
       <Navbar />
       <About />
@@ -17,7 +17,7 @@ function App() {
       <Skills />
       <Project />
       <Contact/>
-    </main>
+    </div>
     );
 }
 

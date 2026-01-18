@@ -1,60 +1,69 @@
+import React, { useState } from "react";
 import { projects } from "../data";
-
+import '../App.css';
 
 function Project() {
-  return (
+  // 1. State for tracking the current page
+  const [activePage] = useState(0);
 
-    <section id="projects" className="project-bg font-italic" >
-      <div className="flex flex-col w-full p-5 mb-20 container text-center" >
-        <h1 className="dark-text" style={{paddingTop:'30px'}}>
+  // 2. Configuration: How many items to show at once?
+  const itemsPerPage = 3;
+
+  // 4. Get only the projects for the CURRENT page
+  const currentProjects = projects.slice(
+    activePage * itemsPerPage,
+    (activePage * itemsPerPage) + itemsPerPage
+  );
+
+  return (
+    <section id="projects" style={{ backgroundColor: '#ffffff', minHeight: '100vh', paddingBottom: '50px' }}>
+
+      {/* Header */}
+      <div className="container text-center pt-5 mb-5">
+        <h1 className="fw-bold text-uppercase dark-text" style={{ letterSpacing: '2px', fontSize: '2.5rem' }}>
           Projects
         </h1>
+        {/* Optional: Little purple line under title */}
+        <div style={{ width: '60px', height: '5px', background: '#FFD41D', margin: 'auto', borderRadius: '5px' }}></div>
       </div>
-      <div className="container" ><div className="row" >
 
+      <div className="container">
 
-        {projects.map((project) => (
-          <div key={project.image} className="col text-left w-50">
-            <div class="card-flip project-bg  col-lg-40 dark-text">
-              <div class="flip">
-                <div class="front">
-                  <div class="card bg-styling-card text-white" style={{ height: "480px" }}>
-                    <img class="card-img-top card-img" src={project.image} alt="100%x180" style={{ width: "100%", display: "block" }} data-holder-rendered="true" />
-                    <br></br><br></br>
-                    <div class="card-block text-center p-2">
-                      <h5 class="card-title">{project.title}</h5>
-                      <h6><p class="card-text">{project.subtitle}</p></h6>
-                    </div>
-                  </div>
+        {/* The Grid: Displays 3 items side-by-side */}
+        <div className="row">
+          {currentProjects.map((project, index) => (
+            <div key={index} className="col-lg-4 col-md-6 mb-4">
+
+              {/* Clean Card Design (No Flip) */}
+              <div className="slider-card h-100 mb-4 d-flex flex-column text-start"> {/* Added text-start for Left Align */}
+
+                <h3 className="slider-title mb-1">{project.title}</h3>
+
+                {/* Subtitle (Date) */}
+                <h6 className="slider-subtitle text-muted mb-3">{project.subtitle}</h6>
+
+                {/* Technologies (Bold styling) */}
+                <div className="mb-3 fw-bold" style={{ fontSize: '0.9rem', color: '#555' }}>
+                  {project.Used_technologies || "2024 - Present"}
                 </div>
-                <div class="back">
-                  <div class="card bg-styling-card text-white text-left  " style={{ height: "480px", verticalAlign: "middle" }}>
-                    <div class="card-block mb-4 p-4">
-                      <br></br>
-                      <h6 class="card-subtitle ">{project.description}</h6>
-                    </div>
-                    {/* <img src={project.image} alt="Image [100%x180]" data-holder-rendered="true" style={{ height: "180px", width: "100%", display: "block" }} /> */}
-                    <div class="card-block p-4">
-                      <p class="card-text">Used technologies:{project.Used_technologies}</p>
-                    </div>
-                  </div>
+
+                {/* Description List - Changed class to 'slider-desc' */}
+                <div className="slider-desc">
+                  <ul className="ps-3 mb-0"> {/* ps-3 adds standard bullet indentation */}
+                    {project.descriptionPoints && project.descriptionPoints.map((point, i) => (
+                      <li key={i} className="mb-2">{point}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
       </div>
-
-      <br></br><br></br><br></br>
     </section>
-
-
-
-
-
-
   );
 }
+
 export default Project;

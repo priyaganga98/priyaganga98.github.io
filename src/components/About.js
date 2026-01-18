@@ -1,95 +1,69 @@
 import React from "react";
-import { useState, useEffect } from "react";
-
+import '../About.css';
+import aboutBg from "../About.png";
 function About() {
+  const sectionStyle = {
+    backgroundImage: `url(${aboutBg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+    minHeight: '100vh',
+  };
 
-  const [text0, setText0] = useState("");
-
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const words = [
-    "As a software developer, " +
-    "I have over 1 year of experience working in a SCRUM environment on various java based projects.I have had a " +
-    "3 month internship experience at Indian space research organisation (ISRO) and have worked as associate " +
-    "software engineer at Incture technologies for over 1 year on java and SAP based technologies.I am currently working as an " +
-    "application developer 2 at Oracle."
-  ];
-
-  useEffect(() => {
-    if (index === words.length) return;
-
-    if (subIndex >= words[index].length + 1) {
-      setSubIndex(0);
-      setIndex((prev) => prev + 1);
-
-
-      return;
+  const handleScroll = (e, targetId) => {
+    e.preventDefault(); // Prevents the URL from changing immediately (standard jump)
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-
-    if (subIndex <= words[index].length + 1) {
-      setTimeout(() => {
-        setSubIndex((prev) => prev + 1);
-        if (index === 0) {
-          setText0(words[index].substring(0, subIndex));
-        }
-      }, 150);
-    }
-  }, [subIndex]);
-
+  };
 
   return (
-    <section id="about">
-      <div className="bg-styling font-italic">
-        <div className="container" height="100%" >
-          <div class="row">
-            <div className="col text-left w-50" style={{ paddingTop: '250px' }}>
+    <section id="about" className="hero-section position-relative overflow-hidden" style={sectionStyle}>
 
-              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+      {/* 1. SOCIAL SIDEBAR (Fixed Left) */}
+      <div className="d-none d-lg-flex flex-column position-absolute social-sidebar">        
+        <a href="https://www.linkedin.com/in/priya-prasad-96a73b184/" target="_blank" rel="noreferrer" className="social-icon">
+          <i className="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a href="https://github.com/priyaganga98" target="_blank" rel="noreferrer" className="social-icon">
+          <i className="fab fa-github fa-2x"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1XX9qmjikSMMMHe7vzVdbXmG50maTWZ3n/view?usp=sharing" target="_blank" rel="noreferrer" className="social-icon">
+          <i className="fas fa-file-alt fa-2x"></i> {/* Resume Icon */}
+        </a>
+      </div>
 
-                Hi, I'm Priya Prasad.
+      {/* 2. MAIN CENTERED CONTENT */}
+      <div className="container h-100 d-flex flex-column justify-content-center align-items-center text-center" style={{ minHeight: '100vh' }}>
 
-              </h1>
-              <h3>
-                <div className="hidden lg:inline-block text-white" style={{ paddingBottom: '20px' }} >Application developer | Oracle </div>
-              </h3>
+        {/* Big Headline */}
+        <h1 className="display-3 font-weight-bold text-uppercase mb-4" style={{ letterSpacing: '3px' }}>
+          Hey, I'm Priya Prasad
+        </h1>
 
-              <div className="flex justify-center">
-                <a
-                  href="https://www.linkedin.com/in/priya-prasad-96a73b184/" target="_blank"
-                  className="btn button my-2 my-sm-0">
-                  LinkedIn
-                </a>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a
-                  href="https://drive.google.com/file/d/1OsuyRBsk2hC-G8p5FNqek1U3pPvJagYH/view?usp=sharing"
-                  className="btn button my-2 my-sm-0" target="_blank">
-                  Resume
-                </a>
-              </div>
-              <br />
-              <p className="font-italic text-white">
-
-                <div>
-                  <div>
-                    <span className="colorBlue">{text0} </span>
-                  </div>
-                </div>
-              </p>
-
-            </div>
-            <div className="col w-50 img-wrapper" style={{ paddingTop: '130px', opacity: '55%', paddingBottom: '100px', marginLeft: '150px' }}>
-              <img
-                 width="100%" height="100%"
-                alt="img"
-                src="./Priya.jpeg"
-              />
-            </div>
-          </div>
-        </div>
+        {/* Subtitle / Bio */}
+        <p className="bold-text lead mb-5" style={{ maxWidth: '800px', fontSize: '1.2rem', lineHeight: '1.8' }}>
+          Senior Application Developer with over 5 years of experience in Java development, RESTful API design, UI development, and test automation.
+          Currently engineering AI agents and enterprise workflows while ensuring software quality through Playwright automation.
+        </p>
+        {/* Purple CTA Button */}
+        <a
+          href="#projects"
+          className="btn btn-custom-yellow px-5 py-3 font-weight-bold text-uppercase shadow-lg" onClick={(e) => handleScroll(e, 'projects')}>
+          Projects
+        </a>
 
       </div>
+
+      {/* 3. MOUSE SCROLL INDICATOR (Bottom Center) */}
+      <div className="mouse-container">
+        <div className="mouse"></div>
+      </div>
+
     </section>
   );
-
 }
+
 export default About;

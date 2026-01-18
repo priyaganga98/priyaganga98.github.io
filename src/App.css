@@ -1,45 +1,392 @@
+/* =========================================
+   1. FONTS & GLOBAL RESET
+   ========================================= */
+/* Import the heavy font used in the reference image */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap');
+
 .App {
   text-align: center;
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Force global light theme and apply the new font */
+body, html {
+  background-color: #fcfcfc; /* Light Grey/White */
+  margin: 0;
+  padding: 0;
+  color: #333; /* Default dark text */
+  font-family: 'Source Sans Pro', sans-serif; /* Apply the font globally */
 }
 
+/* Make the Main Name (H1) extra thick and uppercase */
+h1 {
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.bold-text {
+  font-weight: bold;
+  color: #000;
+}
+
+/* =========================================
+   2. HERO SECTION (Background Pattern)
+   ========================================= */
+.hero-section {
+  background-color: #fcfcfc;
+  /* Geometric Pattern (Light grid dots) */
+  background-image: linear-gradient(to right, #f2f2f2 1px, transparent 1px),
+                    linear-gradient(to bottom, #f2f2f2 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Full Height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically Center content */
+  align-items: center;
+}
+
+/* =========================================
+   3. SOCIAL SIDEBAR (Left)
+   ========================================= */
+.social-sidebar {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: white;
+  padding: 10px 5px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000; /* Ensures it stays on top */
+  border-radius: 0 5px 5px 0;
+  border: 1px solid #eee;
+}
+
+.social-icon {
+  color: #333;
+  margin: 15px 10px; /* Spacing between icons */
+  display: block;    /* Stacks them vertically */
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #FFD41D; /* Icons turn Yellow on hover */
+  transform: scale(1.2); /* Slight grow effect */
+}
+
+/* =========================================
+   4. YELLOW BUTTON (Projects)
+   ========================================= */
+/* Specific styling to override Bootstrap or default links */
+.btn-custom-yellow {
+  /* A slightly deeper yellow/gold helps white text stand out */
+  background-color: #FFC107; 
+  /* White text */
+  color: #ffffff !important; 
+  border: none;
+  border-radius: 8px;
+  /* distinct shadow for the button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  /* subtle text shadow to improve readability of white on yellow */
+  text-shadow: 0 1px 2px rgb(244, 241, 241);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-custom-yellow:hover {
+  /* Darker gold/orange on hover */
+  background-color: #e0a800; 
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   5. REMOVE DARK HEADER STYLES
+   ========================================= */
 .App-header {
-  background-color: #000000;
-  min-height: 100vh;
+  background-color: transparent; 
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000;
 }
 
-.App-link {
-  color: #61dafb;
+.experience-card {
+  background: rgba(255, 255, 255, 0.95); /* White with slight transparency */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 40px;
+  max-width: 2000px; /* Prevents it from being too wide */
+  margin: 0 auto; /* Centers the card itself */
+  text-align: left; /* CRITICAL: Forces text to align left */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Company Header */
+.exp-logo {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-background{
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+/* The Timeline Logic */
+.role-container {
+  position: relative;
+  margin-left: 36px; /* Aligns with the center of the logo above */
+  padding-left: 30px; /* Space between line and text */
+  padding-top: 10px;
+  border-left: 2px solid #e0e0e0; /* The Continuous Grey Line */
+}
 
+/* The Dot for each role */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border: 2px solid #FFC107;
+  border-radius: 50%;
+  position: absolute;
+  left: -37px; 
+  top: 6px; /* Aligns with the first line of text */
+  z-index: 2; /* Ensures it sits ON TOP of the line */
+}
+
+/* Active/Current Role Dot */
+.role-item.current .timeline-dot {
+  background-color: #FFC107; /* Blue */
+  border-color: #FFC107;
+}
+
+/* Custom Skill Badge */
+.skill-badge {
+  background-color: #fff; /* White background */
+  color: #212529; /* Dark text */
+  border: 0.95px solid #FFC107; /* <--- The Yellow Border */
+  border-radius: 4px; /* Slight rounding */
+  padding: 5px 12px; /* Spacing inside the badge */
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block; /* Ensures consistent sizing */
+  margin-right: 8px;  /* Space to the right */
+  margin-bottom: 8px;
+}
+
+/* Typography Clean Up */
+.exp-company { font-size: 1.25rem; font-weight: 700; color: #000; margin-bottom: 2px;}
+.exp-location { font-size: 0.9rem; color: #6c757d; margin-bottom: 1rem; }
+.exp-role-title { font-size: 1.1rem; font-weight: 600; color: #212529; }
+.exp-date { font-size: 0.85rem; color: #6c757d; margin-bottom: 0.5rem; }
+.exp-desc { font-size: 1.05rem; color: #495057; line-height: 1.6; }
+/* Container to center everything */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem; /* Space between header and the content */
+}
+
+/* The Heading Text */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800; /* Extra Bold */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #111; /* Dark Black */
+  margin-bottom: 1.5rem; /* Space between text and purple line */
+  position: relative;
+}
+
+/* The Purple Line */
+.section-line {
+  width: 50px; /* Short width */
+  height: 6px; /* Thickness */
+  background-color: #FFD41D; /* The vivid purple from your image */
+  margin: 0 auto; /* Centers the line horizontally */
+  border-radius: 5px; /* Makes the edges rounded (pill shape) */
+}
+
+/* --- ABOUT SECTION STYLES --- */
+
+/* 1. Skill Tags (The gray boxes) */
+.skill-tag {
+  background-color: #E7E7E7; /* Light Gray Background */
+  color: #666; /* Dark Gray Text */
+  font-weight: 600; /* Semi-bold */
+  padding: 10px 20px; /* Internal spacing */
+  border-radius: 5px; /* Soft corners */
+  font-size: 0.95rem;
+  transition: transform 0.2s;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  background-color: #d1d1d1;
+}
+
+/* 2. Text Styles */
+.about-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto; /* Centers text block */
+}
+
+.about-desc {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+
+/* --- SLIDER CARD STYLES --- */
+.slider-card {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  
+  /* 1. This is your border */
+  border: 1px solid #FFC107; 
+  
+  /* 2. You had two radii; I kept the smoother 12px one */
+  border-radius: 12px; 
+  
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  
+  /* REMOVE THIS LINE: border: none; */
+  
+  transition: transform 0.3s ease;
+  background-color: #fff; /* Ensures the card is white so the border pops */
+}
+
+.slider-card:hover {
+  transform: translateY(-10px); /* Moves up slightly on hover */
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Typography */
+/* Typography Fixes */
+.slider-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.slider-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6c757d; /* Bootstrap Muted Color */
 }
 
 
 
+/* Force the description text to always align left */
+.slider-desc {
+  text-align: left !important;
+  width: 100%; /* Ensures it takes full width to align properly */
+}
 
+.slider-desc ul {
+  text-align: left !important;
+}
+
+.slider-desc li {
+  text-align: left !important;
+}
+
+/* --- CONTACT SECTION STYLES --- */
+
+/* 1. Main Section Background */
+.contact-section {
+  background-color: #FFD41D; /* Deep Navy Blue from image */
+  min-height: 10vh; /* Ensures it takes up good screen space */
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* 2. The White Dash */
+.white-dash {
+  width: 50px;
+  height: 4px;
+  background-color: #fff;
+}
+
+/* 3. Title Typography */
+.contact-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+/* 4. Custom Input Fields (Underline Style) */
+.form-control-custom {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000000; /* Grey line */
+  border-radius: 0;
+  padding: 15px 0;
+  color: #000000; /* White text when typing */
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Placeholder Color */
+.form-control-custom::placeholder {
+  color: #000000; /* Bootstrap muted grey */
+  opacity: 1;
+}
+
+/* Input Focus State */
+.form-control-custom:focus {
+  outline: none;
+  border-bottom: 1px solid #000000; /* Highlights white on focus */
+  box-shadow: none;
+}
+
+
+/* --- SOCIAL PILL BUTTONS --- */
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: #F3F4F6; /* Light grey background */
+  color: #374151; /* Dark grey text */
+  padding: 12px 24px;
+  border-radius: 50px; /* Makes it fully rounded/pill-shaped */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent; /* Prepare for hover border */
+}
+
+/* Icon sizing */
+.social-pill i {
+  font-size: 1.2rem;
+  color: #4B5563;
+}
+
+/* Hover Effect */
+.social-pill:hover {
+  background-color: #fff; /* White on hover */
+  transform: translateY(-3px); /* Lifts up slightly */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Adds shadow */
+  color: #000;
+}

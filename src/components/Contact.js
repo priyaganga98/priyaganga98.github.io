@@ -1,54 +1,39 @@
-
+import React from 'react';
+import '../App.css';
 
 function Contact() {
   return (
-    <section id="contact" className="relative">
+    <section id="contact" className="contact-section">
+      <div className="container">
+        <div className="row align-items-center">
 
-      <div className="bg-styling font-italic text-white ">
-        <div className="container ">
-          <div className="row">
-            <div className="rounded-lg col allign-right">
+          {/* === LEFT COLUMN: Title & Info === */}
+          <div className="col-lg-5 mb-5 mb-lg-0 text-white d-flex flex-column justify-content-center h-100">
 
-
-              <div class="screen">
-                
-                <div class="screen-body">
-                  <div class="screen-body-item left">
-                    <div class="app-title">
-                      <span>Reach out </span>
-                      <span>to me!</span>
-                    </div>
-                    <div class="app-contact">CONTACT INFO : priyaganga98@gmail.com</div>
-                  </div>
-                  <div class="screen-body-item">
-                    <form class="app-form" method="POST" action="https://formspree.io/f/mdobzwoo" target="_blank" name="portfolio" >
-                      <div class="app-form-group">
-                        <input  name="portfolio"  class="app-form-control" placeholder="NAME"  />
-                      </div>
-                      <div class="app-form-group">
-                        <input name="portfolio"  class="app-form-control" placeholder="EMAIL" />
-                      </div>
-                      <div class="app-form-group">
-                        <input name="portfolio"  class="app-form-control" placeholder="CONTACT NO" />
-                      </div>
-                      <div class="app-form-group message">
-                        <input name="portfolio"  class="app-form-control" placeholder="MESSAGE" />
-                      </div>
-                      <div class="app-form-group buttons">
-                        <button class="app-form-button" type="submit" onclick="http://localhost:3000/"> SEND</button>
-                        
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            {/* Italic Title */}
+            <h1 className="contact-title fst-italic">
+              Reach out <br /> to me!
+            </h1>
           </div>
+
+          {/* === RIGHT COLUMN: The Form === */}
+          <div className="col-lg-7 pe-lg-5">
+            <form className="contact-form">
+
+              {/* Contact Email (Pushed to bottom) */}
+              {/* Email Pill */}
+              <a href="mailto:priyaganga98@gmail.com" className="social-pill">
+                <i className="bi bi-envelope" style={{ marginRight: '15px' }}></i>
+                priyaganga98@gmail.com
+              </a>
+
+            </form>
+          </div>
+
         </div>
       </div>
-
     </section>
   );
 }
+
 export default Contact;

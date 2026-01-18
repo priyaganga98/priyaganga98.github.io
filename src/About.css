@@ -1,0 +1,79 @@
+/* ... keep your hero-section background styles the same ... */
+
+/* 2. Social Sidebar Styling */
+.social-sidebar {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: white;
+  padding: 10px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.social-icon {
+  color: #333;
+  margin: 15px 10px;
+  transition: color 0.3s;
+}
+
+/* Update: Hover turns Yellow */
+.social-icon:hover {
+  color: #FFD41D; 
+}
+
+/* 3. The Yellow "PROJECTS" Button */
+.btn-custom-yellow {
+  background-color: #FFD41D; /* Your requested color */
+  color: #333; /* Dark text is necessary on yellow for readability */
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+.btn-custom-yellow:hover {
+  background-color: #e6be19; /* A slightly darker yellow for hover effect */
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(255, 212, 29, 0.4); /* Yellow glow shadow */
+}
+
+/* =========================================
+   5. MOUSE ANIMATION (Bottom Center)
+   ========================================= */
+.mouse-container {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100; /* Ensures it sits on top */
+}
+
+.mouse {
+  width: 25px;
+  height: 45px;
+  border: 2px solid #000000; /* White border */
+  border-radius: 20px;
+  position: relative;
+}
+
+.mouse::before {
+  content: '';
+  width: 4px;
+  height: 8px;
+  background: #000000; /* White wheel */
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% { opacity: 1; top: 10px; }
+  100% { opacity: 0; top: 30px; }
+}
+
+/* ... keep mouse animation styles the same ... */
